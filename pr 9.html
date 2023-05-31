@@ -1,0 +1,59 @@
+<style>
+    table {
+        border-collapse: collapse;
+    }
+
+    td,
+    th{
+        border: 1px solid black;
+        padding: 8px;
+        width: 50px;
+        height: 50px;
+       
+    }
+    body{
+        background-color: bisque;
+    }
+    
+</style>
+
+<h1 style="text-align: center; color :black; line-height: 100px;">TABLE</h1>
+
+<form id="ftable" style="color:coral; font-size: 50px; text-align: center;">
+      <label for = "rowcount">Row :</label>
+      <input type = "number" id="rowcount" name="rowcount" style="border-radius: 500px; font-size: medium;">
+ <br><br>
+
+      <label for = "columncount">column :</label>
+      <input type = "number" id="columncount" name="columncount" style="border-radius: 500px; font-size: medium;">
+<br><br>
+       <input type="submit" value="submit" style="font-size :large; color :blue">
+</form>
+
+  <center>
+     <div id="table1"></div>
+  </center>
+
+  <script type="text/javascript">
+      document.getElementById('ftable').addEventListener('submit', function(event){
+         event.preventDefault();
+
+          var rowcount = document.getElementById('rowcount').value;
+          var columncount = document.getElementById('columncount').value;
+
+           var tbl = '<table>';
+
+            for (var i = 0;i < rowcount; i++){
+                tbl += '<tr>'
+
+                    for (var j = 0; j < columncount; j++){
+                        tbl +=  (i+1) +(j+1) + '<td>';
+                    }
+
+                    tbl += '</tr>';
+            }
+            tbl += '</table>';
+
+            document.getElementById('table1').innerHTML = tbl;
+      })
+  </script>
